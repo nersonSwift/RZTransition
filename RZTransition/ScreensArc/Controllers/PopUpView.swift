@@ -14,10 +14,10 @@ protocol PopUpViewProtocol: UIView{
     var backViewInstance: UIView? { get set }
 }
 
-class PopUpView: UIView, PopUpViewProtocol{
-    var closeClouser: (() -> ())!
-    var backViewInstance: UIView?
-    var backView: UIView{
+public class PopUpView: UIView, PopUpViewProtocol{
+    public var closeClouser: (() -> ())!
+    public var backViewInstance: UIView?
+    public var backView: UIView{
         let bv = UIView()
         bv.backgroundColor = #colorLiteral(red: 0, green: 0, blue: 0, alpha: 0.4877996575)
         return bv

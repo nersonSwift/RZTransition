@@ -19,11 +19,11 @@ public protocol PresenterNoJenericProtocol: NSObject{
 }
 
 extension PresenterNoJenericProtocol{
-    var view: UIView{
+    public var view: UIView{
         screenController?.view ?? UIView()
     }
     
-    var screenController: ScreenControllerProtocol?{
+    public var screenController: ScreenControllerProtocol?{
         set(screenController){
             screenControllerInterfase.screenController = screenController
         }

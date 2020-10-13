@@ -75,12 +75,12 @@ class ScreenControllerInterfase{
 }
 
 extension ScreenControllerProtocol{
-    func start(){}
-    func open(){}
-    func close(){}
-    func completedOpen(){}
-    func completedClose(){}
-    func rotate(){}
+    public func start(){}
+    public func open(){}
+    public func close(){}
+    public func completedOpen(){}
+    public func completedClose(){}
+    public func rotate(){}
     
     private var key: UnsafeRawPointer? {
         return UnsafeRawPointer(bitPattern: 16)
@@ -98,7 +98,7 @@ extension ScreenControllerProtocol{
         return screenControllerInterfase
     }
         
-    var rotater: Rotater? {
+    public var rotater: Rotater? {
         set(rotater){
             screenControllerInterfase.rotater = rotater
         }
@@ -106,7 +106,7 @@ extension ScreenControllerProtocol{
             screenControllerInterfase.rotater
         }
     }
-    var isHorizontal: Bool {
+    public var isHorizontal: Bool {
         set(isHorizontal){
             screenControllerInterfase.isHorizontal = isHorizontal
         }
@@ -114,7 +114,7 @@ extension ScreenControllerProtocol{
             screenControllerInterfase.isHorizontal
         }
     }
-    var starting: Bool {
+    public var starting: Bool {
         set(starting){
             screenControllerInterfase.starting = starting
         }
@@ -122,7 +122,7 @@ extension ScreenControllerProtocol{
             screenControllerInterfase.starting
         }
     }
-    var inAnim: Bool {
+    public var inAnim: Bool {
         set(inAnim){
             screenControllerInterfase.inAnim = inAnim
         }
@@ -130,7 +130,7 @@ extension ScreenControllerProtocol{
             screenControllerInterfase.inAnim
         }
     }
-    var screenLine: String? {
+    public var screenLine: String? {
         set(screenLine){
             screenControllerInterfase.screenLine = screenLine
         }
@@ -138,7 +138,7 @@ extension ScreenControllerProtocol{
             screenControllerInterfase.screenLine
         }
     }
-    var pastScreen: ScreenControllerProtocol? {
+    public var pastScreen: ScreenControllerProtocol? {
         set(pastScreen){
             screenControllerInterfase.pastScreen = pastScreen
         }
@@ -147,7 +147,7 @@ extension ScreenControllerProtocol{
         }
     }
     
-    init() {
+    public init() {
         self.init(nibName: nil, bundle: nil)
     }
 }
@@ -176,8 +176,8 @@ public protocol ScreenControllerPresentingProtocol: ScreenControllerProtocol, Se
 }
 
 extension ScreenControllerPresentingProtocol{
-    var iPhonePresenter: PresenterNoJenericProtocol.Type? { nil }
-    var iPadPresenter: PresenterNoJenericProtocol.Type? { nil }
+    public var iPhonePresenter: PresenterNoJenericProtocol.Type? { nil }
+    public var iPadPresenter: PresenterNoJenericProtocol.Type? { nil }
     
     func setPresenter(){
         if UIDevice.current.userInterfaceIdiom == .pad, let type = iPadPresenter{

@@ -19,8 +19,8 @@ public protocol ScreenControllerUIProtocol: ScreenControllerProtocol, SetPresent
 }
 
 extension ScreenControllerUIProtocol{
-    var iPhoneRouter: R.Type? { nil }
-    var iPadRouter: R.Type? { nil }
+    public var iPhoneRouter: R.Type? { nil }
+    public var iPadRouter: R.Type? { nil }
     
     func setPresenter(){
         if UIDevice.current.userInterfaceIdiom == .pad, let type = iPadRouter{
