@@ -9,8 +9,8 @@
 Pod::Spec.new do |spec|
 
   spec.name         = "RZTransition"
-  spec.version      = "0.0.1"
-  spec.summary      = "A short description of RZTransition."
+  spec.version      = "0.0.2"
+  spec.summary      = "Small example to test code sharing."
   spec.description  = "Small example to test code sharing via cocoapods."	
   
   spec.homepage     = "https://github.com/nersonSwift/RZTransition.git"
@@ -20,12 +20,12 @@ Pod::Spec.new do |spec|
 
  
 
-  spec.author       = { "nersonSwift" => aleksandrsenin@icloud.com", "Angel-senpai" => "daniil.murygin68@gmail.com" }
+  spec.author       = { "Angel-senpai" => "daniil.murygin68@gmail.com", "nersonSwift" => "aleksandrsenin@icloud.com" }
   spec.platform     = :ios, "13.0"
-  spec.source       = { :git => "https://github.com/nersonSwift/RZTransition.git", :tag => "0.0.1" }
+  spec.source       = { :git => "https://github.com/nersonSwift/RZTransition.git", :tag => "0.0.2" }
 
-  spec.source_files  = "RZTransition/RZTransition/**/*"
-  spec.exclude_files = "RZTransition/RZTransition/**/*.plist"
+  spec.source_files  = "RZTransition/**/*"
+  spec.exclude_files = "RZTransition/**/*.plist"
   spec.swift_version = '5.3'
   spec.ios.deployment_target  = '12.0'
 
