@@ -181,20 +181,24 @@ public class TransitionProcedure{
         self.init(transitionType, line.id)
     }
     
+    @discardableResult
     public func view(_ view: UIView) -> TransitionProcedure {
         _view = view
         return self
     }
     
+    @discardableResult
     public func back() -> TransitionProcedure{
         return screen((_screen as? ScreenController)?.pastScreen)
     }
     
+    @discardableResult
     public func screen(_ screen: ScreenControllerProtocol?) -> TransitionProcedure {
         _installingScreen = screen
         return self
     }
     
+    @discardableResult
     public func line(_ string: String) -> TransitionProcedure {
         _selectLine = string
         _installingScreen = LineController.getControllerInLine(string)
@@ -202,33 +206,38 @@ public class TransitionProcedure{
         return self
     }
     
+    @discardableResult
     public func line(_ screenLine: ScreenLines) -> TransitionProcedure {
         return line(screenLine.id)
     }
     
+    @discardableResult
     public func setLine(_ setLine: Bool) -> TransitionProcedure {
         _setLine = setLine
         return self
     }
     
+    @discardableResult
     public func archive(_ pastScreen: ScreenControllerProtocol? = nil) -> TransitionProcedure {
         _archive = true
         _pastScreen = pastScreen
         return self
     }
     
+    @discardableResult
     public func saveTranslite(_ saveTranslite: Bool) -> TransitionProcedure {
         _saveTranslite = saveTranslite
         return self
     }
     
+    @discardableResult
     public func animation(_ animation: TransitionAnimation) -> TransitionProcedure {
         _animation = animation
         return self
     }
     
     @discardableResult
-    func transit() -> Bool{
+    public func transit() -> Bool{
         switch transitionType {
         case .In:
             guard let _screen = _screen else {return false}

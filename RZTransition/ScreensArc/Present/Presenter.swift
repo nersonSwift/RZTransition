@@ -32,7 +32,7 @@ extension PresenterNoJenericProtocol{
         }
     }
     
-    init(installableScreen: ScreenControllerProtocol) {
+    public init(installableScreen: ScreenControllerProtocol) {
         self.init()
         screenController = installableScreen
     }
@@ -61,7 +61,7 @@ public protocol PresenterProtocol: PresenterNoJenericProtocol{
 }
 
 extension PresenterProtocol {
-    var controller: Controller?{ screenController as? Controller }
+    public var controller: Controller?{ screenController as? Controller }
 }
 
 
@@ -80,11 +80,11 @@ public protocol ScreenModelSeter: ScreenModelSeterNJ {
 }
 
 extension ScreenModelSeter{
-    func setModel(){
+    public func setModel(){
         setModel(nil)
     }
     
-    func setModel(_ model: ScreenModel?){
+    public func setModel(_ model: ScreenModel?){
         if let model = model{
             screenModel = model
         }
@@ -96,6 +96,7 @@ public typealias PresenterNMJ = NSObject & PresenterNoJenericProtocol
 public typealias PresenterNJ = NSObject & PresenterNoJenericProtocol & ScreenModelSeter
 public typealias PresenterNM = NSObject & PresenterProtocol
 public typealias Presenter = NSObject & PresenterProtocol & ScreenModelSeter
+
 
 
 

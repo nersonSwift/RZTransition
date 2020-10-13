@@ -175,7 +175,7 @@ public class Rotater: UIView{
     }
     
     
-    init(viewController: UIViewController) {
+    public init(viewController: UIViewController) {
         let view: UIView = viewController.view
         super.init(frame: view.frame)
         view.superview?.addSubview(self)
