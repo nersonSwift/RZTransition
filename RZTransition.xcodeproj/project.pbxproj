@@ -8,12 +8,34 @@
 
 /* Begin PBXBuildFile section */
 		5115FCA825364F3B00751F68 /* RZTransition.h in Headers */ = {isa = PBXBuildFile; fileRef = 5115FCA625364F3B00751F68 /* RZTransition.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		5115FCBD25364F5600751F68 /* Presenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5115FCB125364F5600751F68 /* Presenter.swift */; };
+		5115FCBE25364F5600751F68 /* Router.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5115FCB225364F5600751F68 /* Router.swift */; };
+		5115FCBF25364F5600751F68 /* ScreenUI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5115FCB325364F5600751F68 /* ScreenUI.swift */; };
+		5115FCC025364F5600751F68 /* LinesController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5115FCB425364F5600751F68 /* LinesController.swift */; };
+		5115FCC125364F5600751F68 /* ScreensInstaller.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5115FCB525364F5600751F68 /* ScreensInstaller.swift */; };
+		5115FCC225364F5600751F68 /* ScreenControllerUI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5115FCB725364F5600751F68 /* ScreenControllerUI.swift */; };
+		5115FCC325364F5600751F68 /* PopUpView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5115FCB825364F5600751F68 /* PopUpView.swift */; };
+		5115FCC425364F5600751F68 /* ScreenController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5115FCB925364F5600751F68 /* ScreenController.swift */; };
+		5115FCC525364F5600751F68 /* TransitionAnimation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5115FCBB25364F5600751F68 /* TransitionAnimation.swift */; };
+		5115FCC625364F5600751F68 /* Rotater.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5115FCBC25364F5600751F68 /* Rotater.swift */; };
+		5115FCCA25364F9500751F68 /* RootViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5115FCC925364F9500751F68 /* RootViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		5115FCA325364F3B00751F68 /* RZTransition.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = RZTransition.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		5115FCA625364F3B00751F68 /* RZTransition.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RZTransition.h; sourceTree = "<group>"; };
 		5115FCA725364F3B00751F68 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		5115FCB125364F5600751F68 /* Presenter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Presenter.swift; sourceTree = "<group>"; };
+		5115FCB225364F5600751F68 /* Router.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Router.swift; sourceTree = "<group>"; };
+		5115FCB325364F5600751F68 /* ScreenUI.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScreenUI.swift; sourceTree = "<group>"; };
+		5115FCB425364F5600751F68 /* LinesController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LinesController.swift; sourceTree = "<group>"; };
+		5115FCB525364F5600751F68 /* ScreensInstaller.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScreensInstaller.swift; sourceTree = "<group>"; };
+		5115FCB725364F5600751F68 /* ScreenControllerUI.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScreenControllerUI.swift; sourceTree = "<group>"; };
+		5115FCB825364F5600751F68 /* PopUpView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PopUpView.swift; sourceTree = "<group>"; };
+		5115FCB925364F5600751F68 /* ScreenController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScreenController.swift; sourceTree = "<group>"; };
+		5115FCBB25364F5600751F68 /* TransitionAnimation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TransitionAnimation.swift; sourceTree = "<group>"; };
+		5115FCBC25364F5600751F68 /* Rotater.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Rotater.swift; sourceTree = "<group>"; };
+		5115FCC925364F9500751F68 /* RootViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RootViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -46,10 +68,53 @@
 		5115FCA525364F3B00751F68 /* RZTransition */ = {
 			isa = PBXGroup;
 			children = (
+				5115FCC925364F9500751F68 /* RootViewController.swift */,
+				5115FCAF25364F5600751F68 /* ScreensArc */,
 				5115FCA625364F3B00751F68 /* RZTransition.h */,
 				5115FCA725364F3B00751F68 /* Info.plist */,
 			);
 			path = RZTransition;
+			sourceTree = "<group>";
+		};
+		5115FCAF25364F5600751F68 /* ScreensArc */ = {
+			isa = PBXGroup;
+			children = (
+				5115FCB025364F5600751F68 /* Present */,
+				5115FCB425364F5600751F68 /* LinesController.swift */,
+				5115FCB525364F5600751F68 /* ScreensInstaller.swift */,
+				5115FCB625364F5600751F68 /* Controllers */,
+				5115FCBA25364F5600751F68 /* Helpers */,
+			);
+			path = ScreensArc;
+			sourceTree = "<group>";
+		};
+		5115FCB025364F5600751F68 /* Present */ = {
+			isa = PBXGroup;
+			children = (
+				5115FCB125364F5600751F68 /* Presenter.swift */,
+				5115FCB225364F5600751F68 /* Router.swift */,
+				5115FCB325364F5600751F68 /* ScreenUI.swift */,
+			);
+			path = Present;
+			sourceTree = "<group>";
+		};
+		5115FCB625364F5600751F68 /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				5115FCB725364F5600751F68 /* ScreenControllerUI.swift */,
+				5115FCB825364F5600751F68 /* PopUpView.swift */,
+				5115FCB925364F5600751F68 /* ScreenController.swift */,
+			);
+			path = Controllers;
+			sourceTree = "<group>";
+		};
+		5115FCBA25364F5600751F68 /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				5115FCBB25364F5600751F68 /* TransitionAnimation.swift */,
+				5115FCBC25364F5600751F68 /* Rotater.swift */,
+			);
+			path = Helpers;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -130,6 +195,17 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5115FCC325364F5600751F68 /* PopUpView.swift in Sources */,
+				5115FCBE25364F5600751F68 /* Router.swift in Sources */,
+				5115FCC525364F5600751F68 /* TransitionAnimation.swift in Sources */,
+				5115FCCA25364F9500751F68 /* RootViewController.swift in Sources */,
+				5115FCBF25364F5600751F68 /* ScreenUI.swift in Sources */,
+				5115FCBD25364F5600751F68 /* Presenter.swift in Sources */,
+				5115FCC125364F5600751F68 /* ScreensInstaller.swift in Sources */,
+				5115FCC425364F5600751F68 /* ScreenController.swift in Sources */,
+				5115FCC025364F5600751F68 /* LinesController.swift in Sources */,
+				5115FCC225364F5600751F68 /* ScreenControllerUI.swift in Sources */,
+				5115FCC625364F5600751F68 /* Rotater.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -269,6 +345,7 @@
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
 				INFOPLIST_FILE = RZTransition/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -277,6 +354,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.reliz.RZTransition;
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
 				SKIP_INSTALL = YES;
+				SUPPORTS_MACCATALYST = NO;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -293,6 +371,7 @@
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
 				INFOPLIST_FILE = RZTransition/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -301,6 +380,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.reliz.RZTransition;
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
 				SKIP_INSTALL = YES;
+				SUPPORTS_MACCATALYST = NO;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
