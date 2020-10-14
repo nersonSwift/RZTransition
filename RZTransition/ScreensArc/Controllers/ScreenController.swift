@@ -179,7 +179,7 @@ extension ScreenControllerPresentingProtocol{
     public var iPhonePresenter: PresenterNoJenericProtocol.Type? { nil }
     public var iPadPresenter: PresenterNoJenericProtocol.Type? { nil }
     
-    func setPresenter(){
+    public func setPresenter(){
         if UIDevice.current.userInterfaceIdiom == .pad, let type = iPadPresenter{
             presenter = type.init(installableScreen: self) as? Self.SPDP
         }else if UIDevice.current.userInterfaceIdiom == .phone, let type = iPhonePresenter{
