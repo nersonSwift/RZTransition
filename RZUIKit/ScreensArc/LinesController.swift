@@ -8,7 +8,7 @@
 
 import Foundation
 
-public struct ScreenLines: Hashable {
+public struct RZScreenLines: Hashable {
     public var id: String
     
     public init(_ id: String){
@@ -16,46 +16,46 @@ public struct ScreenLines: Hashable {
     }
 }
 
-public class LineController{
-    fileprivate static var lins: [String: ()->LineNew?] = [:]
-    fileprivate static var anchor = LineController()
+public class RZLineController{
+    fileprivate static var lins: [String: ()->RZLine?] = [:]
+    fileprivate static var anchor = RZLineController()
     
-    public static func getLine(_ id: ScreenLines) -> LineNew? { getLine(id.id) }
-    public static func getLine(_ id: String) -> LineNew? { lins[id]?() }
+    public static func getLine(_ id: RZScreenLines) -> RZLine? { getLine(id.id) }
+    public static func getLine(_ id: String) -> RZLine? { lins[id]?() }
     
-    public static func getControllerInLine(_ id: ScreenLines) -> ScreenControllerProtocol? { getLine(id)?.controller }
-    public static func getControllerInLine(_ id: String) -> ScreenControllerProtocol? { getLine(id)?.controller }
+    public static func getControllerInLine(_ id: RZScreenLines) -> RZScreenControllerProtocol? { getLine(id)?.controller }
+    public static func getControllerInLine(_ id: String) -> RZScreenControllerProtocol? { getLine(id)?.controller }
     
-    public static func setControllerInLine(_ id: ScreenLines, _ controller: ScreenControllerProtocol?){
+    public static func setControllerInLine(_ id: RZScreenLines, _ controller: RZScreenControllerProtocol?){
         setControllerInLine(id.id, controller)
     }
-    public static func setControllerInLine(_ id: String, _ controller: ScreenControllerProtocol?){ getLine(id)?.controller = controller }
+    public static func setControllerInLine(_ id: String, _ controller: RZScreenControllerProtocol?){ getLine(id)?.controller = controller }
     
-    public static func addLines(_ lines: [LineNew]){ lines.forEach{ addLine($0) } }
-    public static func addLine(_ line: LineNew){ lins[line.id] = { [weak line] in return line } }
-    public static func addLine(id: ScreenLines,
-                               controller: ScreenControllerProtocol? = nil,
+    public static func addLines(_ lines: [RZLine]){ lines.forEach{ addLine($0) } }
+    public static func addLine(_ line: RZLine){ lins[line.id] = { [weak line] in return line } }
+    public static func addLine(id: RZScreenLines,
+                               controller: RZScreenControllerProtocol? = nil,
                                anchor: AnyObject? = nil,
                                key: UnsafeRawPointer? = nil
     ){
         addLine(id: id.id, controller: controller, anchor: anchor, key: key)
     }
     public static func addLine(id: String,
-                               controller: ScreenControllerProtocol? = nil,
+                               controller: RZScreenControllerProtocol? = nil,
                                anchor: AnyObject? = nil,
                                key: UnsafeRawPointer? = nil){
-        addLine(LineNew(id: id, controller: controller, anchor: anchor, key: key))
+        addLine(RZLine(id: id, controller: controller, anchor: anchor, key: key))
     }
     
     
-    public static func removeLine(id: ScreenLines){ removeLine(id: id.id) }
+    public static func removeLine(id: RZScreenLines){ removeLine(id: id.id) }
     public static func removeLine(id: String){
         let line = lins[id]?()
         line?.removeAssociated()
         lins[id] = nil
     }
     
-    public static func migrateController(at: ScreenLines, to: ScreenLines){ migrateController(at: at.id, to: to.id) }
+    public static func migrateController(at: RZScreenLines, to: RZScreenLines){ migrateController(at: at.id, to: to.id) }
     public static func migrateController(at: String, to: String){
         let atLine = getLine(at)
         let toLine = getLine(to)
@@ -65,13 +65,13 @@ public class LineController{
     }
 }
 
-public class LineNew{
+public class RZLine{
     public var id: String = ""
-    public var controller: ScreenControllerProtocol?{
+    public var controller: RZScreenControllerProtocol?{
         didSet(old){
             old?.screenLine = nil
             if let line = controller?.screenLine, id != line{
-                LineController.migrateController(at: line, to: id)
+                RZLineController.migrateController(at: line, to: id)
             }else{
                 controller?.screenLine = id
             }
@@ -81,11 +81,11 @@ public class LineNew{
     private weak var anchor: AnyObject?
     private var key: UnsafeRawPointer?
     
-    public convenience init(id: ScreenLines, controller: ScreenControllerProtocol? = nil, anchor: AnyObject? = nil, key: UnsafeRawPointer? = nil){
+    public convenience init(id: RZScreenLines, controller: RZScreenControllerProtocol? = nil, anchor: AnyObject? = nil, key: UnsafeRawPointer? = nil){
         self.init(id: id.id, controller: controller, anchor: anchor, key: key)
     }
     
-    public init(id: String, controller: ScreenControllerProtocol? = nil, anchor: AnyObject? = nil, key: UnsafeRawPointer? = nil){
+    public init(id: String, controller: RZScreenControllerProtocol? = nil, anchor: AnyObject? = nil, key: UnsafeRawPointer? = nil){
         self.id = id
         self.controller = controller
         self.controller?.screenLine = id
@@ -95,7 +95,7 @@ public class LineNew{
     public func associatedLine(_ anchor: AnyObject? = nil, key: UnsafeRawPointer? = nil){
         removeAssociated()
         
-        let anchor = anchor ?? LineController.anchor
+        let anchor = anchor ?? RZLineController.anchor
         var key = key
         
         if key == nil{

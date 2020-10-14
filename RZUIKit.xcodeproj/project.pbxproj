@@ -8,34 +8,34 @@
 
 /* Begin PBXBuildFile section */
 		516B6C8A25370892007D6D16 /* RZUIKit.h in Headers */ = {isa = PBXBuildFile; fileRef = 516B6C8825370892007D6D16 /* RZUIKit.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		516B6CA0253708C0007D6D16 /* RootViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 516B6C91253708C0007D6D16 /* RootViewController.swift */; };
-		516B6CA1253708C0007D6D16 /* Presenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 516B6C94253708C0007D6D16 /* Presenter.swift */; };
-		516B6CA2253708C0007D6D16 /* Router.swift in Sources */ = {isa = PBXBuildFile; fileRef = 516B6C95253708C0007D6D16 /* Router.swift */; };
-		516B6CA3253708C0007D6D16 /* ScreenUI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 516B6C96253708C0007D6D16 /* ScreenUI.swift */; };
+		516B6CA0253708C0007D6D16 /* RZRootController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 516B6C91253708C0007D6D16 /* RZRootController.swift */; };
+		516B6CA1253708C0007D6D16 /* RZPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 516B6C94253708C0007D6D16 /* RZPresenter.swift */; };
+		516B6CA2253708C0007D6D16 /* RZRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 516B6C95253708C0007D6D16 /* RZRouter.swift */; };
+		516B6CA3253708C0007D6D16 /* RZScreenUI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 516B6C96253708C0007D6D16 /* RZScreenUI.swift */; };
 		516B6CA4253708C0007D6D16 /* LinesController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 516B6C97253708C0007D6D16 /* LinesController.swift */; };
 		516B6CA5253708C0007D6D16 /* ScreensInstaller.swift in Sources */ = {isa = PBXBuildFile; fileRef = 516B6C98253708C0007D6D16 /* ScreensInstaller.swift */; };
-		516B6CA6253708C0007D6D16 /* ScreenControllerUI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 516B6C9A253708C0007D6D16 /* ScreenControllerUI.swift */; };
-		516B6CA7253708C0007D6D16 /* PopUpView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 516B6C9B253708C0007D6D16 /* PopUpView.swift */; };
-		516B6CA8253708C0007D6D16 /* ScreenController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 516B6C9C253708C0007D6D16 /* ScreenController.swift */; };
-		516B6CA9253708C0007D6D16 /* TransitionAnimation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 516B6C9E253708C0007D6D16 /* TransitionAnimation.swift */; };
-		516B6CAA253708C0007D6D16 /* Rotater.swift in Sources */ = {isa = PBXBuildFile; fileRef = 516B6C9F253708C0007D6D16 /* Rotater.swift */; };
+		516B6CA6253708C0007D6D16 /* RZScreenControllerUI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 516B6C9A253708C0007D6D16 /* RZScreenControllerUI.swift */; };
+		516B6CA7253708C0007D6D16 /* RZPopUpView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 516B6C9B253708C0007D6D16 /* RZPopUpView.swift */; };
+		516B6CA8253708C0007D6D16 /* RZScreenController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 516B6C9C253708C0007D6D16 /* RZScreenController.swift */; };
+		516B6CA9253708C0007D6D16 /* RZTransitionAnimation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 516B6C9E253708C0007D6D16 /* RZTransitionAnimation.swift */; };
+		516B6CAA253708C0007D6D16 /* RZRotater.swift in Sources */ = {isa = PBXBuildFile; fileRef = 516B6C9F253708C0007D6D16 /* RZRotater.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		516B6C8525370892007D6D16 /* RZUIKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = RZUIKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		516B6C8825370892007D6D16 /* RZUIKit.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RZUIKit.h; sourceTree = "<group>"; };
 		516B6C8925370892007D6D16 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		516B6C91253708C0007D6D16 /* RootViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RootViewController.swift; sourceTree = "<group>"; };
-		516B6C94253708C0007D6D16 /* Presenter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Presenter.swift; sourceTree = "<group>"; };
-		516B6C95253708C0007D6D16 /* Router.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Router.swift; sourceTree = "<group>"; };
-		516B6C96253708C0007D6D16 /* ScreenUI.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScreenUI.swift; sourceTree = "<group>"; };
+		516B6C91253708C0007D6D16 /* RZRootController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RZRootController.swift; sourceTree = "<group>"; };
+		516B6C94253708C0007D6D16 /* RZPresenter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RZPresenter.swift; sourceTree = "<group>"; };
+		516B6C95253708C0007D6D16 /* RZRouter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RZRouter.swift; sourceTree = "<group>"; };
+		516B6C96253708C0007D6D16 /* RZScreenUI.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RZScreenUI.swift; sourceTree = "<group>"; };
 		516B6C97253708C0007D6D16 /* LinesController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LinesController.swift; sourceTree = "<group>"; };
 		516B6C98253708C0007D6D16 /* ScreensInstaller.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScreensInstaller.swift; sourceTree = "<group>"; };
-		516B6C9A253708C0007D6D16 /* ScreenControllerUI.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScreenControllerUI.swift; sourceTree = "<group>"; };
-		516B6C9B253708C0007D6D16 /* PopUpView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PopUpView.swift; sourceTree = "<group>"; };
-		516B6C9C253708C0007D6D16 /* ScreenController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScreenController.swift; sourceTree = "<group>"; };
-		516B6C9E253708C0007D6D16 /* TransitionAnimation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TransitionAnimation.swift; sourceTree = "<group>"; };
-		516B6C9F253708C0007D6D16 /* Rotater.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Rotater.swift; sourceTree = "<group>"; };
+		516B6C9A253708C0007D6D16 /* RZScreenControllerUI.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RZScreenControllerUI.swift; sourceTree = "<group>"; };
+		516B6C9B253708C0007D6D16 /* RZPopUpView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RZPopUpView.swift; sourceTree = "<group>"; };
+		516B6C9C253708C0007D6D16 /* RZScreenController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RZScreenController.swift; sourceTree = "<group>"; };
+		516B6C9E253708C0007D6D16 /* RZTransitionAnimation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RZTransitionAnimation.swift; sourceTree = "<group>"; };
+		516B6C9F253708C0007D6D16 /* RZRotater.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RZRotater.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -68,7 +68,7 @@
 		516B6C8725370892007D6D16 /* RZUIKit */ = {
 			isa = PBXGroup;
 			children = (
-				516B6C91253708C0007D6D16 /* RootViewController.swift */,
+				516B6C91253708C0007D6D16 /* RZRootController.swift */,
 				516B6C92253708C0007D6D16 /* ScreensArc */,
 				516B6C8825370892007D6D16 /* RZUIKit.h */,
 				516B6C8925370892007D6D16 /* Info.plist */,
@@ -79,9 +79,9 @@
 		516B6C92253708C0007D6D16 /* ScreensArc */ = {
 			isa = PBXGroup;
 			children = (
-				516B6C93253708C0007D6D16 /* Present */,
 				516B6C97253708C0007D6D16 /* LinesController.swift */,
 				516B6C98253708C0007D6D16 /* ScreensInstaller.swift */,
+				516B6C93253708C0007D6D16 /* Present */,
 				516B6C99253708C0007D6D16 /* Controllers */,
 				516B6C9D253708C0007D6D16 /* Helpers */,
 			);
@@ -91,9 +91,9 @@
 		516B6C93253708C0007D6D16 /* Present */ = {
 			isa = PBXGroup;
 			children = (
-				516B6C94253708C0007D6D16 /* Presenter.swift */,
-				516B6C95253708C0007D6D16 /* Router.swift */,
-				516B6C96253708C0007D6D16 /* ScreenUI.swift */,
+				516B6C94253708C0007D6D16 /* RZPresenter.swift */,
+				516B6C95253708C0007D6D16 /* RZRouter.swift */,
+				516B6C96253708C0007D6D16 /* RZScreenUI.swift */,
 			);
 			path = Present;
 			sourceTree = "<group>";
@@ -101,9 +101,9 @@
 		516B6C99253708C0007D6D16 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
-				516B6C9A253708C0007D6D16 /* ScreenControllerUI.swift */,
-				516B6C9B253708C0007D6D16 /* PopUpView.swift */,
-				516B6C9C253708C0007D6D16 /* ScreenController.swift */,
+				516B6C9A253708C0007D6D16 /* RZScreenControllerUI.swift */,
+				516B6C9B253708C0007D6D16 /* RZPopUpView.swift */,
+				516B6C9C253708C0007D6D16 /* RZScreenController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -111,8 +111,8 @@
 		516B6C9D253708C0007D6D16 /* Helpers */ = {
 			isa = PBXGroup;
 			children = (
-				516B6C9E253708C0007D6D16 /* TransitionAnimation.swift */,
-				516B6C9F253708C0007D6D16 /* Rotater.swift */,
+				516B6C9E253708C0007D6D16 /* RZTransitionAnimation.swift */,
+				516B6C9F253708C0007D6D16 /* RZRotater.swift */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -196,17 +196,17 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				516B6CAA253708C0007D6D16 /* Rotater.swift in Sources */,
+				516B6CAA253708C0007D6D16 /* RZRotater.swift in Sources */,
 				516B6CA5253708C0007D6D16 /* ScreensInstaller.swift in Sources */,
-				516B6CA7253708C0007D6D16 /* PopUpView.swift in Sources */,
-				516B6CA8253708C0007D6D16 /* ScreenController.swift in Sources */,
+				516B6CA7253708C0007D6D16 /* RZPopUpView.swift in Sources */,
+				516B6CA8253708C0007D6D16 /* RZScreenController.swift in Sources */,
 				516B6CA4253708C0007D6D16 /* LinesController.swift in Sources */,
-				516B6CA6253708C0007D6D16 /* ScreenControllerUI.swift in Sources */,
-				516B6CA9253708C0007D6D16 /* TransitionAnimation.swift in Sources */,
-				516B6CA1253708C0007D6D16 /* Presenter.swift in Sources */,
-				516B6CA2253708C0007D6D16 /* Router.swift in Sources */,
-				516B6CA0253708C0007D6D16 /* RootViewController.swift in Sources */,
-				516B6CA3253708C0007D6D16 /* ScreenUI.swift in Sources */,
+				516B6CA6253708C0007D6D16 /* RZScreenControllerUI.swift in Sources */,
+				516B6CA9253708C0007D6D16 /* RZTransitionAnimation.swift in Sources */,
+				516B6CA1253708C0007D6D16 /* RZPresenter.swift in Sources */,
+				516B6CA2253708C0007D6D16 /* RZRouter.swift in Sources */,
+				516B6CA0253708C0007D6D16 /* RZRootController.swift in Sources */,
+				516B6CA3253708C0007D6D16 /* RZScreenUI.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -8,8 +8,8 @@
 
 import UIKit
 
-public struct TransitionAnimation: Equatable{
-    public static func == (lhs: TransitionAnimation, rhs: TransitionAnimation) -> Bool {
+public struct RZTransitionAnimation: Equatable{
+    public static func == (lhs: RZTransitionAnimation, rhs: RZTransitionAnimation) -> Bool {
         lhs.name == rhs.name
     }
     
@@ -23,8 +23,8 @@ public struct TransitionAnimation: Equatable{
         self.name = name
     }
     
-    public static var ezAnim: TransitionAnimation{
-        TransitionAnimation("ezAnim") { oldView, newView, placeView, end in
+    public static var ezAnim: RZTransitionAnimation{
+        RZTransitionAnimation("ezAnim") { oldView, newView, placeView, end in
             let rootSize = placeView.frame.size
             if let newView = newView{
                 newView.transform.ty += rootSize.height
@@ -44,8 +44,8 @@ public struct TransitionAnimation: Equatable{
         }
     }
     
-    public static var ezAnimR: TransitionAnimation{
-        TransitionAnimation("ezAnimR") { oldView, newView, placeView, end in
+    public static var ezAnimR: RZTransitionAnimation{
+        RZTransitionAnimation("ezAnimR") { oldView, newView, placeView, end in
             let rootSize = placeView.frame.size
             if let oldView = oldView{
                 placeView.bringSubviewToFront(oldView)
@@ -61,8 +61,8 @@ public struct TransitionAnimation: Equatable{
         }
     }
     
-    public static var ezAnimRSlou: TransitionAnimation{
-        TransitionAnimation("ezAnimRSlou") { oldView, newView, placeView, end in
+    public static var ezAnimRSlou: RZTransitionAnimation{
+        RZTransitionAnimation("ezAnimRSlou") { oldView, newView, placeView, end in
             let rootSize = placeView.frame.size
             if let oldView = oldView{
                 placeView.bringSubviewToFront(oldView)
@@ -76,8 +76,8 @@ public struct TransitionAnimation: Equatable{
         }
     }
     
-    public static var appearance: TransitionAnimation{
-        TransitionAnimation("appearance") { oldView, newView, placeView, end in
+    public static var appearance: RZTransitionAnimation{
+        RZTransitionAnimation("appearance") { oldView, newView, placeView, end in
             if let newView = newView{
                 newView.alpha = 0
                 UIView.animate(withDuration: 0.2, animations: {
@@ -87,8 +87,8 @@ public struct TransitionAnimation: Equatable{
         }
     }
     
-    public static var exhaustion: TransitionAnimation{
-        TransitionAnimation("exhaustion") { oldView, newView, placeView, end in
+    public static var exhaustion: RZTransitionAnimation{
+        RZTransitionAnimation("exhaustion") { oldView, newView, placeView, end in
             if let oldView = oldView{
                 placeView.bringSubviewToFront(oldView)
                 UIView.animate(withDuration: 0.2, animations: {
@@ -101,8 +101,8 @@ public struct TransitionAnimation: Equatable{
         }
     }
     
-    public static var swipeRight: TransitionAnimation{
-        TransitionAnimation("swipeRight") { oldView, newView, placeView, end in
+    public static var swipeRight: RZTransitionAnimation{
+        RZTransitionAnimation("swipeRight") { oldView, newView, placeView, end in
             let rootSize = placeView.frame.size
             if let oldView = oldView{
                 newView?.transform.tx -= rootSize.width * 0.3
@@ -118,8 +118,8 @@ public struct TransitionAnimation: Equatable{
         }
     }
     
-    public static var shiftLeft: TransitionAnimation{
-        TransitionAnimation("shiftLeft") { oldView, newView, placeView, end in
+    public static var shiftLeft: RZTransitionAnimation{
+        RZTransitionAnimation("shiftLeft") { oldView, newView, placeView, end in
             let rootSize = placeView.frame.size
             if let oldView = oldView, let newView = newView{
                 newView.transform.tx += rootSize.width
@@ -134,8 +134,8 @@ public struct TransitionAnimation: Equatable{
         }
     }
     
-    public static var shiftRight: TransitionAnimation{
-        TransitionAnimation("shiftRight") { oldView, newView, placeView, end in
+    public static var shiftRight: RZTransitionAnimation{
+        RZTransitionAnimation("shiftRight") { oldView, newView, placeView, end in
             let rootSize = placeView.frame.size
             if let oldView = oldView, let newView = newView{
                 newView.transform.tx -= rootSize.width
@@ -150,8 +150,8 @@ public struct TransitionAnimation: Equatable{
         }
     }
     
-    public static var shiftLeftEz: TransitionAnimation{
-        TransitionAnimation("shiftLeftEz") { oldView, newView, placeView, end in
+    public static var shiftLeftEz: RZTransitionAnimation{
+        RZTransitionAnimation("shiftLeftEz") { oldView, newView, placeView, end in
             let rootSize = placeView.frame.size
             if let oldView = oldView, let newView = newView{
                 newView.transform.tx += rootSize.width
@@ -166,8 +166,8 @@ public struct TransitionAnimation: Equatable{
         }
     }
     
-    public static var shiftRightEz: TransitionAnimation{
-        TransitionAnimation("shiftRightEz") { oldView, newView, placeView, end in
+    public static var shiftRightEz: RZTransitionAnimation{
+        RZTransitionAnimation("shiftRightEz") { oldView, newView, placeView, end in
             let rootSize = placeView.frame.size
             if let oldView = oldView, let newView = newView{
                 newView.transform.tx -= rootSize.width
@@ -182,8 +182,8 @@ public struct TransitionAnimation: Equatable{
         }
     }
     
-    public static func circle(_ point: CGPoint) -> TransitionAnimation{
-        TransitionAnimation("circle") { oldView, newView, placeView, end in
+    public static func circle(_ point: CGPoint) -> RZTransitionAnimation{
+        RZTransitionAnimation("circle") { oldView, newView, placeView, end in
             if let newView = newView{
                 let foundationFrame = CGRect(x: point.x,
                                              y: point.y,
@@ -216,8 +216,8 @@ public struct TransitionAnimation: Equatable{
         }
     }
     
-    public static func circleP(rect: CGRect, color: UIColor, borderColor: UIColor? = nil) -> TransitionAnimation{
-        TransitionAnimation("circleP") { oldView, newView, placeView, end in
+    public static func circleP(rect: CGRect, color: UIColor, borderColor: UIColor? = nil) -> RZTransitionAnimation{
+        RZTransitionAnimation("circleP") { oldView, newView, placeView, end in
             if let newView = newView{
                 let foundation = UIView(frame: rect)
                 foundation.alpha = 0
@@ -277,8 +277,8 @@ public struct TransitionAnimation: Equatable{
         }
     }
     
-    public static func circlePR(rect: CGRect, color: UIColor) -> TransitionAnimation{
-        TransitionAnimation("circlePR") { oldView, newView, placeView, end in
+    public static func circlePR(rect: CGRect, color: UIColor) -> RZTransitionAnimation{
+        RZTransitionAnimation("circlePR") { oldView, newView, placeView, end in
             if let oldView = oldView{
                 let foundation = UIView(frame: CGRect())
                 placeView.addSubview(foundation)
@@ -324,8 +324,8 @@ public struct TransitionAnimation: Equatable{
     }
     
     
-    public static var shiftRightPopUp: TransitionAnimation{
-        TransitionAnimation("shiftRightPopUp") { _, popUpView, backView, end in
+    public static var shiftRightPopUp: RZTransitionAnimation{
+        RZTransitionAnimation("shiftRightPopUp") { _, popUpView, backView, end in
             UIView.animate(withDuration: 0.7,
                            delay: 0.0,
                            usingSpringWithDamping: 0.8,
@@ -341,8 +341,8 @@ public struct TransitionAnimation: Equatable{
         }
     }
     
-    public static var shiftLeftPopUp: TransitionAnimation{
-        TransitionAnimation("shiftLeftPopUp") { _, popUpView, backView, end in
+    public static var shiftLeftPopUp: RZTransitionAnimation{
+        RZTransitionAnimation("shiftLeftPopUp") { _, popUpView, backView, end in
             backView.alpha = 0
             popUpView?.transform.tx = backView.frame.width
             UIView.animate(withDuration: 0.7,

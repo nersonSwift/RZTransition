@@ -8,13 +8,13 @@
 
 import UIKit
 
-protocol PopUpViewProtocol: UIView{
+protocol RZPopUpViewProtocol: UIView{
     var closeClouser: (()->())! { get set }
     var backView: UIView { get }
     var backViewInstance: UIView? { get set }
 }
 
-open class PopUpView: UIView, PopUpViewProtocol{
+open class RZPopUpView: UIView, RZPopUpViewProtocol{
     open var closeClouser: (() -> ())!
     open var backViewInstance: UIView?
     open var backView: UIView{
@@ -25,7 +25,7 @@ open class PopUpView: UIView, PopUpViewProtocol{
 }
 
 
-public protocol PopUpScreenProtocol: ScreenControllerProtocol{
+public protocol PopUpScreenProtocol: RZScreenControllerProtocol{
     var closeClosure: (()->())? { get set }
     var backView: UIView { get }
     var backViewInstance: UIView? { get set }

@@ -9,21 +9,21 @@
 import UIKit
 
 fileprivate class PresenterInterfase{
-    weak var screenController: ScreenControllerProtocol?
+    weak var screenController: RZScreenControllerProtocol?
 }
 
-public protocol PresenterNoJenericProtocol: NSObject{
+public protocol RZPresenterNoJenericProtocol: NSObject{
     var view: UIView { get }
     func create()
-    init(installableScreen: ScreenControllerProtocol)
+    init(installableScreen: RZScreenControllerProtocol)
 }
 
-extension PresenterNoJenericProtocol{
+extension RZPresenterNoJenericProtocol{
     public var view: UIView{
         screenController?.view ?? UIView()
     }
     
-    public var screenController: ScreenControllerProtocol?{
+    public var screenController: RZScreenControllerProtocol?{
         set(screenController){
             screenControllerInterfase.screenController = screenController
         }
@@ -32,7 +32,7 @@ extension PresenterNoJenericProtocol{
         }
     }
     
-    public init(installableScreen: ScreenControllerProtocol) {
+    public init(installableScreen: RZScreenControllerProtocol) {
         self.init()
         screenController = installableScreen
     }
@@ -55,31 +55,31 @@ extension PresenterNoJenericProtocol{
 }
 
 
-public protocol PresenterProtocol: PresenterNoJenericProtocol{
-    associatedtype Controller: ScreenControllerProtocol
+public protocol RZPresenterProtocol: RZPresenterNoJenericProtocol{
+    associatedtype Controller: RZScreenControllerProtocol
     var controller: Controller? { get }
 }
 
-extension PresenterProtocol {
+extension RZPresenterProtocol {
     public var controller: Controller?{ screenController as? Controller }
 }
 
 
-public protocol ScreenModelProtocol{}
+public protocol RZScreenModelProtocol{}
 
-public protocol ScreenModelSeterNJ: class {
+public protocol RZScreenModelSeterNJ: class {
     func setModel()
 }
 
-public protocol ScreenModelSeter: ScreenModelSeterNJ {
-    associatedtype ScreenModel: ScreenModelProtocol
+public protocol RZScreenModelSeter: RZScreenModelSeterNJ {
+    associatedtype ScreenModel: RZScreenModelProtocol
     var screenModel: ScreenModel! {get set}
     
     func setModel()
     func setModel(_ model: ScreenModel?)
 }
 
-extension ScreenModelSeter{
+extension RZScreenModelSeter{
     public func setModel(){
         setModel(nil)
     }
@@ -92,10 +92,10 @@ extension ScreenModelSeter{
 }
 
 
-public typealias PresenterNMJ = NSObject & PresenterNoJenericProtocol
-public typealias PresenterNJ = NSObject & PresenterNoJenericProtocol & ScreenModelSeter
-public typealias PresenterNM = NSObject & PresenterProtocol
-public typealias Presenter = NSObject & PresenterProtocol & ScreenModelSeter
+public typealias RZPresenterNMJ = NSObject & RZPresenterNoJenericProtocol
+public typealias RZPresenterNJ = NSObject & RZPresenterNoJenericProtocol & RZScreenModelSeter
+public typealias RZPresenterNM = NSObject & RZPresenterProtocol
+public typealias RZPresenter = NSObject & RZPresenterProtocol & RZScreenModelSeter
 
 
 

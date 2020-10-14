@@ -10,7 +10,7 @@ import UIKit
 
 //MARK: - ScreenControllerProtocol
 /// `ru`: - протокол который используется для создания и переходов контроллеров
-public protocol ScreenControllerProtocol: UIViewController{
+public protocol RZScreenControllerProtocol: UIViewController{
     
     //MARK: - propertes
     //MARK: - starting
@@ -31,11 +31,11 @@ public protocol ScreenControllerProtocol: UIViewController{
     
     //MARK: - rotater
     /// `ru`: - класс отвечающий за орентацию котроллера в представлении
-    var rotater: Rotater? { get set }
+    var rotater: RZRotater? { get set }
     
     //MARK: - pastScreen
      /// `ru`: - контроллер который архивируется для обратного перехода
-    var pastScreen: ScreenControllerProtocol? { get set }
+    var pastScreen: RZScreenControllerProtocol? { get set }
     
     
     //MARK: - funcs
@@ -65,16 +65,16 @@ public protocol ScreenControllerProtocol: UIViewController{
 }
 
 class ScreenControllerInterfase{
-    var rotater: Rotater?
+    var rotater: RZRotater?
     var isHorizontal: Bool = false
     
     var starting: Bool = false
     var inAnim = false
     var screenLine: String?
-    var pastScreen: ScreenControllerProtocol?
+    var pastScreen: RZScreenControllerProtocol?
 }
 
-extension ScreenControllerProtocol{
+extension RZScreenControllerProtocol{
     public func start(){}
     public func open(){}
     public func close(){}
@@ -98,7 +98,7 @@ extension ScreenControllerProtocol{
         return screenControllerInterfase
     }
         
-    public var rotater: Rotater? {
+    public var rotater: RZRotater? {
         set(rotater){
             screenControllerInterfase.rotater = rotater
         }
@@ -138,7 +138,7 @@ extension ScreenControllerProtocol{
             screenControllerInterfase.screenLine
         }
     }
-    public var pastScreen: ScreenControllerProtocol? {
+    public var pastScreen: RZScreenControllerProtocol? {
         set(pastScreen){
             screenControllerInterfase.pastScreen = pastScreen
         }
@@ -152,14 +152,14 @@ extension ScreenControllerProtocol{
     }
 }
 
-public protocol SetPresenterProtocol {
+public protocol RZSetPresenterProtocol {
     func setPresenter()
 }
 
 //MARK: - ScreenController
 /// `ru`: - расширение для `ScreenControllerProtocol` позволяющее делигировать ликику представления в `Presenter`
-public protocol ScreenControllerPresentingProtocol: ScreenControllerProtocol, SetPresenterProtocol{
-    associatedtype SPDP: PresenterNoJenericProtocol
+public protocol RZScreenControllerPresentingProtocol: RZScreenControllerProtocol, RZSetPresenterProtocol{
+    associatedtype SPDP: RZPresenterNoJenericProtocol
     
     //MARK: - propertes
     //MARK: - presenter
@@ -168,16 +168,16 @@ public protocol ScreenControllerPresentingProtocol: ScreenControllerProtocol, Se
     
     //MARK: - iPhonePresenter
     /// `ru`: - свойство которое которое должно вернуть тип `Presenter` который будет инициализирован для версии `iPhone`
-    var iPhonePresenter: PresenterNoJenericProtocol.Type? { get }
+    var iPhonePresenter: RZPresenterNoJenericProtocol.Type? { get }
     
     //MARK: - iPadPresenter
     /// `ru`: - свойство которое которое должно вернуть тип `Presenter` который будет инициализирован для версии `iPad`
-    var iPadPresenter: PresenterNoJenericProtocol.Type? { get }
+    var iPadPresenter: RZPresenterNoJenericProtocol.Type? { get }
 }
 
-extension ScreenControllerPresentingProtocol{
-    public var iPhonePresenter: PresenterNoJenericProtocol.Type? { nil }
-    public var iPadPresenter: PresenterNoJenericProtocol.Type? { nil }
+extension RZScreenControllerPresentingProtocol{
+    public var iPhonePresenter: RZPresenterNoJenericProtocol.Type? { nil }
+    public var iPadPresenter: RZPresenterNoJenericProtocol.Type? { nil }
     
     public func setPresenter(){
         if UIDevice.current.userInterfaceIdiom == .pad, let type = iPadPresenter{
@@ -188,20 +188,20 @@ extension ScreenControllerPresentingProtocol{
             presenter = SPDP.init(installableScreen: self)
         }
         
-        if let presenter = presenter as? ScreenModelSeterNJ{
+        if let presenter = presenter as? RZScreenModelSeterNJ{
             presenter.setModel()
         }
     }
 }
 
 
-public typealias ScreenController = UIViewController & ScreenControllerProtocol
-public typealias ScreenControllerPresenting = ScreenController & ScreenControllerPresentingProtocol
+public typealias RZScreenController = UIViewController & RZScreenControllerProtocol
+public typealias RZScreenControllerPresenting = RZScreenController & RZScreenControllerPresentingProtocol
 
-public typealias ScreenNavigationController = UINavigationController & ScreenControllerProtocol
-public typealias ScreenNavigationControllerPresenting = ScreenNavigationController & ScreenControllerPresentingProtocol
+public typealias RZScreenNavigationController = UINavigationController & RZScreenControllerProtocol
+public typealias RZScreenNavigationControllerPresenting = RZScreenNavigationController & RZScreenControllerPresentingProtocol
 
-public typealias ScreenTabBarController = UITabBarController & ScreenControllerProtocol
-public typealias ScreenTabBarControllerPresenting = ScreenTabBarController & ScreenControllerPresentingProtocol
+public typealias RZScreenTabBarController = UITabBarController & RZScreenControllerProtocol
+public typealias RZScreenTabBarControllerPresenting = RZScreenTabBarController & RZScreenControllerPresentingProtocol
 
 

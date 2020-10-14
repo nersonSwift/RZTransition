@@ -14,13 +14,13 @@ import UIKit
 
 class ScreensInstaller{
     static var inAnimation: Bool = false
-    static var rootViewController: RootViewController!
+    static var rootViewController: RZRootController!
     
     //MARK: - in
     static func installScreen(in viewController: UIViewController,
                               view: UIView? = nil,
-                              installingScreen: ScreenControllerProtocol,
-                              animation: TransitionAnimation? = nil) -> Bool{
+                              installingScreen: RZScreenControllerProtocol,
+                              animation: RZTransitionAnimation? = nil) -> Bool{
         if viewController == installingScreen{return false}
         setChild(viewController, view, installingScreen)
         started(installingScreen)
@@ -41,13 +41,13 @@ class ScreensInstaller{
     }
     
     //MARK: - instead
-    static func installScreen(instead screen: ScreenControllerProtocol,
-                              installingScreen: ScreenControllerProtocol? = nil,
+    static func installScreen(instead screen: RZScreenControllerProtocol,
+                              installingScreen: RZScreenControllerProtocol? = nil,
                               archive: Bool = false,
-                              pastScreen: ScreenControllerProtocol? = nil,
+                              pastScreen: RZScreenControllerProtocol? = nil,
                               saveTranslite: Bool = true,
                               setLine: Bool = true,
-                              animation: TransitionAnimation? = nil) -> Bool{
+                              animation: RZTransitionAnimation? = nil) -> Bool{
         
         if saveTranslite && (inAnimation || (installingScreen?.inAnim == true)){
             return false
@@ -63,7 +63,7 @@ class ScreensInstaller{
         screen.close()
         if let installingScreen = installingScreen, let parent = screen.parent{
             if screen == installingScreen {return false}
-            if let selectLine = screen.screenLine, setLine{ LineController.setControllerInLine(selectLine, installingScreen) }
+            if let selectLine = screen.screenLine, setLine{ RZLineController.setControllerInLine(selectLine, installingScreen) }
             setChild(parent, screen.rotater?.superview, installingScreen)
             started(installingScreen)
             installingScreen.open()
@@ -87,9 +87,9 @@ class ScreensInstaller{
     }
     
     static func installPopUp(in view: UIView,
-                             installingPopUpView: PopUpView,
-                             anim open: TransitionAnimation = .shiftLeft,
-                             anim close: TransitionAnimation = .shiftRight){
+                             installingPopUpView: RZPopUpView,
+                             anim open: RZTransitionAnimation = .shiftLeft,
+                             anim close: RZTransitionAnimation = .shiftRight){
         /*
         let backView = installingPopUpView.backView
         backView.frame = view.bounds
@@ -109,7 +109,7 @@ class ScreensInstaller{
          */
     }
     
-    private static func setChild(_ viewController: UIViewController, _ view: UIView?, _ screen: ScreenControllerProtocol){
+    private static func setChild(_ viewController: UIViewController, _ view: UIView?, _ screen: RZScreenControllerProtocol){
         let view: UIView = view ?? viewController.view
         screen.view.frame = view.bounds
         view.addSubview(screen.view)
@@ -118,7 +118,7 @@ class ScreensInstaller{
         viewController.addChild(screen)
         screen.didMove(toParent: viewController)
         
-        screen.rotater = Rotater(viewController: screen)
+        screen.rotater = RZRotater(viewController: screen)
         ScreensInstaller.rootViewController?.roatateCild()
     }
     
@@ -126,13 +126,13 @@ class ScreensInstaller{
         viewController.willMove(toParent: nil)
         viewController.removeFromParent()
         viewController.view.removeFromSuperview()
-        (viewController as? ScreenController)?.rotater?.removeFromSuperview()
+        (viewController as? RZScreenController)?.rotater?.removeFromSuperview()
     }
     
-    private static func started(_ screen: ScreenControllerProtocol){
+    private static func started(_ screen: RZScreenControllerProtocol){
         
         if !screen.starting{
-            if let delegating = screen as? SetPresenterProtocol{
+            if let delegating = screen as? RZSetPresenterProtocol{
                 delegating.setPresenter()
             }
             
@@ -141,16 +141,16 @@ class ScreensInstaller{
         }
     }
     
-    static func prepare(_ transitionType: TransitionProcedure.TransitionType, _ screen: UIViewController) -> TransitionProcedure{
-        return TransitionProcedure(transitionType, screen)
+    static func prepare(_ transitionType: RZTransition.TransitionType, _ screen: UIViewController) -> RZTransition{
+        return RZTransition(transitionType, screen)
     }
     
-    static func prepare(_ transitionType: TransitionProcedure.TransitionType, _ line: String) -> TransitionProcedure{
-        return TransitionProcedure(transitionType, line)
+    static func prepare(_ transitionType: RZTransition.TransitionType, _ line: String) -> RZTransition{
+        return RZTransition(transitionType, line)
     }
 }
 
-public class TransitionProcedure{
+public class RZTransition{
     public enum TransitionType {
         case In
         case Instead
@@ -160,11 +160,11 @@ public class TransitionProcedure{
     
     private weak var _screen: UIViewController?
     private var _view: UIView?
-    private var _pastScreen: ScreenControllerProtocol?
-    private var _installingScreen: ScreenControllerProtocol?
+    private var _pastScreen: RZScreenControllerProtocol?
+    private var _installingScreen: RZScreenControllerProtocol?
     private var _archive: Bool = false
     private var _saveTranslite: Bool = true
-    private var _animation: TransitionAnimation?
+    private var _animation: RZTransitionAnimation?
     private var _selectLine: String?
     private var _setLine: Bool = true
     
@@ -174,64 +174,64 @@ public class TransitionProcedure{
     }
     
     public convenience init(_ transitionType: TransitionType, _ line: String){
-        self.init(transitionType, LineController.getControllerInLine(line)!)
+        self.init(transitionType, RZLineController.getControllerInLine(line)!)
     }
     
-    public convenience init(_ transitionType: TransitionType, _ line: ScreenLines){
+    public convenience init(_ transitionType: TransitionType, _ line: RZScreenLines){
         self.init(transitionType, line.id)
     }
     
     @discardableResult
-    public func view(_ view: UIView) -> TransitionProcedure {
+    public func view(_ view: UIView) -> RZTransition {
         _view = view
         return self
     }
     
     @discardableResult
-    public func back() -> TransitionProcedure{
-        return screen((_screen as? ScreenController)?.pastScreen)
+    public func back() -> RZTransition{
+        return screen((_screen as? RZScreenController)?.pastScreen)
     }
     
     @discardableResult
-    public func screen(_ screen: ScreenControllerProtocol?) -> TransitionProcedure {
+    public func screen(_ screen: RZScreenControllerProtocol?) -> RZTransition {
         _installingScreen = screen
         return self
     }
     
     @discardableResult
-    public func line(_ string: String) -> TransitionProcedure {
+    public func line(_ string: String) -> RZTransition {
         _selectLine = string
-        _installingScreen = LineController.getControllerInLine(string)
+        _installingScreen = RZLineController.getControllerInLine(string)
         _setLine = false
         return self
     }
     
     @discardableResult
-    public func line(_ screenLine: ScreenLines) -> TransitionProcedure {
+    public func line(_ screenLine: RZScreenLines) -> RZTransition {
         return line(screenLine.id)
     }
     
     @discardableResult
-    public func setLine(_ setLine: Bool) -> TransitionProcedure {
+    public func setLine(_ setLine: Bool) -> RZTransition {
         _setLine = setLine
         return self
     }
     
     @discardableResult
-    public func archive(_ pastScreen: ScreenControllerProtocol? = nil) -> TransitionProcedure {
+    public func archive(_ pastScreen: RZScreenControllerProtocol? = nil) -> RZTransition {
         _archive = true
         _pastScreen = pastScreen
         return self
     }
     
     @discardableResult
-    public func saveTranslite(_ saveTranslite: Bool) -> TransitionProcedure {
+    public func saveTranslite(_ saveTranslite: Bool) -> RZTransition {
         _saveTranslite = saveTranslite
         return self
     }
     
     @discardableResult
-    public func animation(_ animation: TransitionAnimation) -> TransitionProcedure {
+    public func animation(_ animation: RZTransitionAnimation) -> RZTransition {
         _animation = animation
         return self
     }
@@ -244,7 +244,7 @@ public class TransitionProcedure{
             guard let _installingScreen = _installingScreen else {return false}
             return ScreensInstaller.installScreen(in: _screen, view: _view, installingScreen: _installingScreen, animation: _animation)
         case .Instead:
-            guard let _screen = _screen as? ScreenControllerProtocol else {return false}
+            guard let _screen = _screen as? RZScreenControllerProtocol else {return false}
             let test = ScreensInstaller.installScreen(instead: _screen,
                                                       installingScreen: _installingScreen,
                                                       archive: _archive,

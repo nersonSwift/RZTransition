@@ -9,16 +9,16 @@
 import SwiftUI
 
 
-public typealias ScreenControllerUI = UIHostingController<AnyView> & ScreenControllerProtocol & ScreenControllerUIProtocol
+public typealias RZScreenControllerUI = UIHostingController<AnyView> & RZScreenControllerProtocol & RZScreenControllerUIProtocol
 
-public protocol ScreenControllerUIProtocol: ScreenControllerProtocol, SetPresenterProtocol{
-    associatedtype R: Router
+public protocol RZScreenControllerUIProtocol: RZScreenControllerProtocol, RZSetPresenterProtocol{
+    associatedtype R: RZRouter
     var router: R? {get set}
     var iPhoneRouter: R.Type? { get }
     var iPadRouter: R.Type? { get }
 }
 
-extension ScreenControllerUIProtocol{
+extension RZScreenControllerUIProtocol{
     public var iPhoneRouter: R.Type? { nil }
     public var iPadRouter: R.Type? { nil }
     

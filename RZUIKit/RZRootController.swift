@@ -8,38 +8,38 @@
 
 import UIKit
 
-public class RootViewController: UIViewController {
-    var lines: [LineNew] = []
+public class RZRootController: UIViewController {
+    var lines: [RZLine] = []
     var select: String = "Main"
 
     
-    public static func setupRootViewController(_ installableScreenProtocol: ScreenControllerProtocol) -> RootViewController{
+    public static func setupRootViewController(_ installableScreenProtocol: RZScreenControllerProtocol) -> RZRootController{
         return setupRootViewController(["Main": installableScreenProtocol], "Main")
     }
     
-    public static func setupRootViewController(_ screenLines: [LineNew], _ select: ScreenLines) -> RootViewController{
+    public static func setupRootViewController(_ screenLines: [RZLine], _ select: RZScreenLines) -> RZRootController{
         setupRootViewController(screenLines, select.id)
     }
 
-    public static func setupRootViewController(_ screenLines: [LineNew], _ select: String) -> RootViewController{
-        let rVC = RootViewController()
+    public static func setupRootViewController(_ screenLines: [RZLine], _ select: String) -> RZRootController{
+        let rVC = RZRootController()
         rVC.lines = screenLines
         rVC.select = select
         return rVC
     }
     
-    public static func setupRootViewController(_ screenLines: [String: ScreenControllerProtocol], _ select: String) -> RootViewController{
-        var lines: [LineNew] = []
+    public static func setupRootViewController(_ screenLines: [String: RZScreenControllerProtocol], _ select: String) -> RZRootController{
+        var lines: [RZLine] = []
         screenLines.forEach(){
-            lines.append(LineNew(id: $0.key, controller: $0.value))
+            lines.append(RZLine(id: $0.key, controller: $0.value))
         }
         return setupRootViewController(lines, select)
     }
     
-    public static func setupRootViewController(_ screenLines: [ScreenLines: ScreenControllerProtocol], _ select: ScreenLines) -> RootViewController{
-        var lines: [LineNew] = []
+    public static func setupRootViewController(_ screenLines: [RZScreenLines: RZScreenControllerProtocol], _ select: RZScreenLines) -> RZRootController{
+        var lines: [RZLine] = []
         screenLines.forEach(){
-            lines.append(LineNew(id: $0.key, controller: $0.value))
+            lines.append(RZLine(id: $0.key, controller: $0.value))
         }
         return setupRootViewController(lines, select)
     }
@@ -47,31 +47,31 @@ public class RootViewController: UIViewController {
     private func registring(){
         if lines.count == 0 {return}
         ScreensInstaller.rootViewController = self
-        LineController.addLines(lines)
+        RZLineController.addLines(lines)
         lines = []
         let plase = UIView(frame: view.bounds)
         view.addSubview(plase)
-        TransitionProcedure(.In, self).view(plase).line(select).transit()
+        RZTransition(.In, self).view(plase).line(select).transit()
     }
     
     func roatateCild(){
         var orientation = UIApplication.shared.windows.first?.windowScene?.interfaceOrientation ?? .portrait
         if orientation != .unknown{
-            Rotater.lastOrintation = orientation
+            RZRotater.lastOrintation = orientation
         }else{
-            orientation = Rotater.lastOrintation
+            orientation = RZRotater.lastOrintation
         }
         for child in children{
-            if let child = child as? ScreenControllerProtocol{
-                Rotater.resizeAllChild(parent: false,
+            if let child = child as? RZScreenControllerProtocol{
+                RZRotater.resizeAllChild(parent: false,
                                        child: child,
                                        parentOrientation: orientation,
                                        orientation)
             }
         }
         
-        Rotater.oldOrintation = Rotater.lastOrintation
-        Rotater.rotate()
+        RZRotater.oldOrintation = RZRotater.lastOrintation
+        RZRotater.rotate()
     }
     
     public override func viewDidLoad() {

@@ -31,8 +31,8 @@ extension UIInterfaceOrientation{
 }
 
 
-public class Rotater: UIView{
-    weak var mateController: ScreenControllerProtocol?
+public class RZRotater: UIView{
+    weak var mateController: RZScreenControllerProtocol?
     weak var mate: UIView?
     var mateOrientation: UIInterfaceOrientation?
     var mateGoodOrientation: [UIInterfaceOrientation] = [] //UIInterfaceOrientationMask?
@@ -72,7 +72,7 @@ public class Rotater: UIView{
         
         var time: TimeInterval = 0.3
         
-        let testo = Rotater.oldOrintation.getStateNumber() - deviceOrientation.getStateNumber()
+        let testo = RZRotater.oldOrintation.getStateNumber() - deviceOrientation.getStateNumber()
         
         if testo % 2 == 0, testo != 0, piMode != 0{
             if testo > 0{
@@ -148,7 +148,7 @@ public class Rotater: UIView{
     }
     
     static func resizeAllChild(parent: Bool = true,
-                               child: ScreenControllerProtocol,
+                               child: RZScreenControllerProtocol,
                                parentOrientation: UIInterfaceOrientation,
                                _ deviceOrientation: UIInterfaceOrientation){
         
@@ -157,7 +157,7 @@ public class Rotater: UIView{
                                   deviceOrientation: deviceOrientation)
         
         for childL in child.children{
-            if let childL = childL as? ScreenControllerProtocol{
+            if let childL = childL as? RZScreenControllerProtocol{
                 resizeAllChild(child: childL,
                                parentOrientation: child.rotater?.mateOrientation ?? .portrait,
                                deviceOrientation)
@@ -166,7 +166,7 @@ public class Rotater: UIView{
         }
     }
     
-    private static var rotatingSceens: [ScreenControllerProtocol] = []
+    private static var rotatingSceens: [RZScreenControllerProtocol] = []
     static func rotate(){
         for screen in rotatingSceens{
             screen.rotate()
@@ -182,7 +182,7 @@ public class Rotater: UIView{
         view.frame.origin = CGPoint()
         self.addSubview(view)
         mate = view
-        if let viewController = viewController as? ScreenControllerProtocol{
+        if let viewController = viewController as? RZScreenControllerProtocol{
             mateController = viewController
         }
         setGoodOrintation(supportedInterfaceOrientations: viewController.supportedInterfaceOrientations)
@@ -208,11 +208,11 @@ public class Rotater: UIView{
     
     func testOrintation(){
         var orintation = UIApplication.shared.windows.first?.windowScene?.interfaceOrientation ?? .portrait
-        if let test = mateController?.parent as? ScreenControllerProtocol{
+        if let test = mateController?.parent as? RZScreenControllerProtocol{
             rotateMate(parentOrientation: test.rotater?.mateOrientation ?? .portrait, deviceOrientation: orintation)
         }else{
             if orintation.getStateNumber() == -1{
-                orintation = Rotater.lastOrintation
+                orintation = RZRotater.lastOrintation
             }
             rotateMate(parent: false, parentOrientation: orintation, deviceOrientation: orintation)
         }
