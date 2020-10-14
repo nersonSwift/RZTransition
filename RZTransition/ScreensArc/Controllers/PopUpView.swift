@@ -23,3 +23,18 @@ open class PopUpView: UIView, PopUpViewProtocol{
         return bv
     }
 }
+
+
+public protocol PopUpScreenProtocol: ScreenControllerProtocol{
+    var closeClosure: (()->())? { get set }
+    var backView: UIView { get }
+    var backViewInstance: UIView? { get set }
+}
+ 
+extension PopUpScreenProtocol{
+    public var backView: UIView{
+        let bv = UIView()
+        bv.backgroundColor = #colorLiteral(red: 0, green: 0, blue: 0, alpha: 0.4877996575)
+        return bv
+    }
+}
